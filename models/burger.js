@@ -1,29 +1,47 @@
 // Import the ORM to create functions that will interact with the database.
-var orm = require("../config/orm.js");
 
-var cat = {
-  all: function(cb) {
-    orm.all("cats", function(res) {
-      cb(res);
-    });
-  },
-  // The variables cols and vals are arrays.
-  create: function(cols, vals, cb) {
-    orm.create("cats", cols, vals, function(res) {
-      cb(res);
-    });
-  },
-  update: function(objColVals, condition, cb) {
-    orm.update("cats", objColVals, condition, function(res) {
-      cb(res);
-    });
-  },
-  delete: function(condition, cb) {
-    orm.delete("cats", condition, function(res) {
-      cb(res);
-    });
-  }
-};
+$(function () {
+  $(".eat-burger").on("click", function (event) {
+    console.log("Clicked");
+    var id = $(this).data("id");
+    var name = $(this).data("name");
 
-// Export the database functions for the controller (catsController.js).
-module.exports = cat;
+    var bData = {
+      burger_name: name,
+      devoured: 1
+    }
+    console.log("bdata", bData);
+    // Send the PUT request.
+    $.ajax("/api/burger/" + id, {
+      type: "PUT",
+      data: bData
+    }).then(
+      function () {
+        console.log(name + "(" + id + ")" + "has been eaten.");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+  $(".create-form").on("submit", function (event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var newBurger = {
+      burger_name: $("#bn").val().trim(),
+    };
+
+    // Send the POST request.
+    $.ajax("/api/burger", {
+      type: "POST",
+      data: newBurger
+    }).then(
+      function () {
+        console.log("created new burger");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+});
