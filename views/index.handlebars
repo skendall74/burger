@@ -1,0 +1,49 @@
+<div class="jumbotron text-center">
+  <h1 class="display-4">Burgers</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div id="left" class="col text-center">
+      <table class="table">
+        <thead>
+          <th>Uneaten Burgers</th>
+        </thead>
+        <tbody>
+          {{#each burgers}}
+          {{#unless devoured}}
+          {{> burger-partial dev=false}}
+          {{/unless}}
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    <div id="right" class="col text-center">
+      <table class="table">
+        <thead>
+          <th>Eaten Burgers</th>
+        </thead>
+        <tbody>
+          {{#each burgers}}
+          {{#if devoured}}
+          {{> burger-partial dev=true}}
+          {{/if}}
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="row m-3">
+  <div class="col"></div>
+  <div class="col text-center" id="add-burger">
+    <h2>Add a Burger</h2>
+    <form class="create-form">
+      <div class="form-group">
+        <label for="bn">Burger Name:</label>
+        <input type="text" id="bn" name="name">
+      </div>
+      <button type="submit">Add Burger</button>
+    </form>
+  </div>
+  <div class="col"></div>
+</div>
