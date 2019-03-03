@@ -16,13 +16,10 @@ router.get("/", function (req, res) {
   });
 });
 
-router.post("/", function(req,res)  {
-  burgers.create([  
-    "burgerName", "isEaten"
-  ], [
-    req.body.burger_name, 0
-  ], function() {
-    res.redirect("/");
+router.post("/api/burger", function (req, res) {
+  burgers.create(["burger_name"], [req.body.burger_name], function (result) {
+    // Send back the ID of the new quote
+    res.json({ id: result.insertId });
   });
 });
   
@@ -31,15 +28,8 @@ router.put("/:id", function (req, res) {
   console.log("condition", condition)
   
   burgers.update({
-    isEaten: req.body.isEaten
+    devoured: req.body.devoured
   }, condition, function()  {
-    res.redirect("/");
-  });
-});
-
-router.delete("/:id", function(req,res) {
-  var condition = "id = " + req.params.id;
-  burgers.delete(condition,function() {
     res.redirect("/");
   });
 });

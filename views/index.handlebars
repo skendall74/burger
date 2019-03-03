@@ -4,17 +4,21 @@
       <div class="card-image">
       </div>
       <div class="card-content">
-        <h4>Burgers You Chose:</h4>
+        <h4>Burgers You Can Choose From:</h4>
         <hr>
         <ul>
-          {{#unless this.isEaten}}
+          {{#each burgers}}
+          {{#if this.devoured}}
           <li>
             <span>
+              {{this.burger_name}}
               <div>
+                {{> burgers/eatBurger}}
               </div>
             </span>
           </li>
-          {{/unless}}
+          {{/if}}
+          {{/each}}
         </ul>
       </div>
     </div>
@@ -28,14 +32,18 @@
         <h4>The Burgers you've Eaten:</h4>
         <hr>
         <ul>
-          {{#unless this.isEaten}}
+          {{#each burgers}}
+          {{#if this.devoured}}
           <li>
             <span>
+              {{this.burger_name}}
               <div>
+                {{> burgers/eatBurger}}
               </div>
             </span>
           </li>
-          {{/unless}}
+          {{/if}}
+          {{/each}}
         </ul>
       </div>
     </div>
@@ -49,7 +57,7 @@
     <form class="create-update-form" action="/" method="POST">
       <div class="form-group">
         <label for="burger">List it here!</label>
-        <input type="text" id="burger" name="burgerName" class="validate">
+        <input type="text" id="burger" name="burger_name" class="validate">
         <button type="submit" class="waves-effect waves-light btn btn-small black right"><i
             class="material-icons prefix"></i>Add Burger</button>
       </div>
