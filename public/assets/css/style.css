@@ -1,1 +1,31 @@
 
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+.btn {
+  margin: 10px auto;
+}
+
+ul > li {
+  list-style-type: none;
+  font-size: 1.4em;
+  font-weight: 900;
+  LINE-HEIGHT: 1;
+  PADDING-BOTTOM: 20PX;
+}
+
+.row .col.offset-s4 {
+  position: absolute;
+}

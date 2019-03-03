@@ -1,49 +1,59 @@
-<div class="jumbotron text-center">
-  <h1 class="display-4">Burgers</h1>
-</div>
-<div class="container">
-  <div class="row">
-    <div id="left" class="col text-center">
-      <table class="table">
-        <thead>
-          <th>Uneaten Burgers</th>
-        </thead>
-        <tbody>
-          {{#each burgers}}
-          {{#unless devoured}}
-          {{> burger-partial dev=false}}
+<div class="row">
+  <div class="col s6">
+    <div class="card">
+      <div class="card-image">
+        <img src="assets/images/menu.png">
+      </div>
+      <div class="card-content">
+        <h4>Some burgers to choose:</h4>
+        <hr>
+        <ul>
+          {{#unless this.isEaten}}
+          <li>
+            <span>
+              <div>
+              </div>
+            </span>
+          </li>
           {{/unless}}
-          {{/each}}
-        </tbody>
-      </table>
+        </ul>
+      </div>
     </div>
-    <div id="right" class="col text-center">
-      <table class="table">
-        <thead>
-          <th>Eaten Burgers</th>
-        </thead>
-        <tbody>
-          {{#each burgers}}
-          {{#if devoured}}
-          {{> burger-partial dev=true}}
-          {{/if}}
-          {{/each}}
-        </tbody>
-      </table>
+  </div>
+
+  <div class="col s6">
+    <div class="card">
+      <div class="card-image">
+        <img src="assets/images/eaten.png">
+      </div>
+      <div class="card-content">
+        <h4>Some burgers you've eaten:</h4>
+        <hr>
+        <ul>
+          {{#unless this.isEaten}}
+          <li>
+            <span>
+              <div>
+              </div>
+            </span>
+          </li>
+          {{/unless}}
+        </ul>
+      </div>
     </div>
   </div>
 </div>
-<div class="row m-3">
-  <div class="col"></div>
-  <div class="col text-center" id="add-burger">
-    <h2>Add a Burger</h2>
-    <form class="create-form">
+
+
+<div class="row">
+  <div class="col s6 offset-s3">
+    <h6>Put your favorite burger on the menu!</h6>
+    <form class="create-update-form" action="/" method="POST">
       <div class="form-group">
-        <label for="bn">Burger Name:</label>
-        <input type="text" id="bn" name="name">
+        <label for="burger">List it here!</label>
+        <input type="text" id="burger" name="burgerName" class="validate">
+        <button type="submit" class="waves-effect waves-light btn btn-small black right"><i
+            class="material-icons prefix">Create</i>Add Burger</button>
       </div>
-      <button type="submit">Add Burger</button>
     </form>
   </div>
-  <div class="col"></div>
-</div>
