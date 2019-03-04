@@ -4,7 +4,9 @@ var router = express.Router();
 
 // Import the model (burger.js) to use its database functions.
 var burgers = require("../models/burger.js");
-
+router.get('/burgers', (req, res) => {
+  burgers.all(data => res.send(data));
+})
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function (req, res) {
   burgers.all(function (data) { 
