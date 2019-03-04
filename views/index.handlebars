@@ -17,7 +17,10 @@
               <span>
                 {{this.burger_name}}
                 <div>
-                  {{> eatBurger}}
+                  <form action="/burgers/{{id}}?_method=PUT" method="POST" class="complete">
+                    <input type="hidden" name="devoured" value="1">
+                    <button type="submit">Eaten!</button>
+                  </form>
                 </div>
               </span>
             </li>
@@ -44,7 +47,10 @@
             <span>
               {{this.burger_name}}
               <div>
-                {{> eatBurger}}
+                <form action="/burgers/{{id}}?_method=PUT" method="POST" class="complete">
+                  <input type="hidden" name="devoured" value="1">
+                  <button type="submit">Eaten!</button>
+                </form>
               </div>
             </span>
           </li>
