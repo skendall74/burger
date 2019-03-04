@@ -1,7 +1,7 @@
 // Import MySQL connection.
 var connection = require("./connection.js");
 
-var orm = {
+var orm = { 
   selectAll: function (table, cb) {
     var queryString = "SELECT * FROM ";
     queryString += table;
