@@ -7,18 +7,23 @@
         <h4>Burgers You Can Choose From:</h4>
         <hr>
         <ul>
-          {{#each burgers}}
-          {{#if this.devoured}}
-          <li>
-            <span>
-              {{this.burger_name}}
-              <div>
-                {{> eatBurger}}
-              </div>
-            </span>
-          </li>
-          {{/if}}
-          {{/each}}
+          <ul>
+            {{#each burgers}}
+
+            {{#unless devoured}}
+            Nothing here
+            
+            <li>
+              <span>
+                {{this.burger_name}}
+                <div>
+                  {{> eatBurger}}
+                </div>
+              </span>
+            </li>
+            {{/unless}}
+            {{/each}}
+          </ul>
         </ul>
       </div>
     </div>
@@ -33,7 +38,8 @@
         <hr>
         <ul>
           {{#each burgers}}
-          {{#if this.devoured}}
+
+          {{#if devoured}}
           <li>
             <span>
               {{this.burger_name}}

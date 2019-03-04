@@ -42,6 +42,18 @@ var orm = {
       if (err) throw err;
       cb(data);
     });
+  },
+  delete: function (table, condition, cb) {
+    var queryString = "DELETE FROM " + table;
+    queryString += " WHERE " + condition;
+
+    connection.query(queryString, function (err, result) {
+      if (err) {
+        throw err;
+      }
+
+      cb(result);
+    });
   }
 }
 
@@ -68,5 +80,6 @@ function objToSql(ob) {
 
   return arr.toString();
 }
+
 
 module.exports = orm;
