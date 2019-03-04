@@ -5,11 +5,8 @@ USE burgers_db;
 -- Create the table tasks.
 CREATE TABLE burgers
 (
-	ID INTEGER(11)
-	AUTO_INCREMENT NOT NULL,
-	burger_name VARCHAR
-	(255) NOT NULL,
+	ID INTEGER(11) AUTO_INCREMENT NOT NULL,
+	burger_name VARCHAR (255) NOT NULL,
 	devoured BOOLEAN,
-	PRIMARY KEY
-	(ID)
+	PRIMARY KEY (ID)
 );
