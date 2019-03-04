@@ -17,11 +17,11 @@ router.get("/", function (req, res) {
 });
 
 router.post("/", function (req, res) {
-  burgers.create([
+  burgers.post([
     "burger_name", "devoured"
   ], [
       req.body.burger_name, 0
-    ], function (burgers) {
+    ], function () {
       res.redirect("/");
     });
 });
