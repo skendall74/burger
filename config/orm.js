@@ -6,6 +6,7 @@ var orm = {
     var queryString = "SELECT * FROM ";
     queryString += table;
     connection.query(queryString, function (err, data) {
+      console.log(data);
       if (err) throw err;
       cb(data);
     });
