@@ -17,6 +17,7 @@
               <span>
                 {{this.burger_name}}
                 <div>
+                  {{id}}
                   <form action="/burgers/{{id}}?_method=PUT" method="POST" class="complete">
                     <input type="hidden" name="devoured" value="1">
                     <button type="submit">Eaten!</button>
