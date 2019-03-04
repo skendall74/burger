@@ -16,13 +16,8 @@
             <li>
               <span>
                 {{this.burger_name}}
-                
                 <div>
-                  <p>ID: {{id}}</p>
-                  <form action="/burgers/{{id}}?_method=PUT" method="POST" class="complete">
-                    <input type="hidden" name="devoured" value="1">
-                    <button type="submit">Eaten!</button>
-                  </form>
+                  {{> eatBurger}}
                 </div>
               </span>
             </li>
@@ -30,12 +25,6 @@
             {{/each}}
           </ul>
         </ul>
-        <script>
-          fetch('/burgers')
-            .then(res => res.json())
-            .then(data => console.log(data));
-          console.log(data);
-        </script>
       </div>
     </div>
   </div>
@@ -55,10 +44,7 @@
             <span>
               {{this.burger_name}}
               <div>
-                <form action="/burgers/{{id}}?_method=PUT" method="POST" class="complete">
-                  <input type="hidden" name="devoured" value="1">
-                  <button type="submit">Eaten!</button>
-                </form>
+                {{> eatBurger}}
               </div>
             </span>
           </li>
