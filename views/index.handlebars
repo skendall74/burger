@@ -16,7 +16,10 @@
             <li>
               <span>
                 {{this.burger_name}}
-                <pre>{{this}}</pre>
+                <script>
+                  var data = {{this}};
+                  console.log(data);
+                </script>
                 <div>
                   <p>ID: {{id}}</p>
                   <form action="/burgers/{{id}}?_method=PUT" method="POST" class="complete">
